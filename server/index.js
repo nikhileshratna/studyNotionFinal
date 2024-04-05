@@ -22,11 +22,12 @@ database.connect();
 app.use(express.json());
 app.use(cookieParser());
 // Example in an Express.js server
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://study-notion-sage.vercel.app');
-  // Add other headers here as needed
-  next();
-});
+app.use(
+	cors({
+		origin:"*",
+		credentials:true,
+	})
+)
 
 
 app.use(
