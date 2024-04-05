@@ -21,12 +21,13 @@ database.connect();
 //middlewares
 app.use(express.json());
 app.use(cookieParser());
-app.use(
-	cors({
-		origin:"http://localhost:3000",
-		credentials:true,
-	})
-)
+// Example in an Express.js server
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://study-notion-sage.vercel.app');
+  // Add other headers here as needed
+  next();
+});
+
 
 app.use(
 	fileUpload({
