@@ -20,6 +20,16 @@ import { ratingsEndpoints } from "../../services/apis"
 function ReviewSlider() {
   const [reviews, setReviews] = useState([])
   const truncateWords = 15
+  const [dimension,setDimension] = useState({
+    width:window.innerWidth
+  })
+
+  const detectSize = () => {
+    setDimension({
+      width:window.innerWidth,
+    })
+  }
+  const [count,setCount] = useState(4);
 
   useEffect(() => {
     ;(async () => {
@@ -33,13 +43,20 @@ function ReviewSlider() {
     })()
   }, [])
 
+  useEffect (() => {
+    window.addEventListener("resize", detectSize);
+    if(window.innerWidth >= 768) setCount(4);
+    else setCount(1);
+
+    return () => window.removeEventListener("resize", detectSize);
+  }, [dimension])
   // console.log(reviews)
 
   return (
     <div className="text-white w-full">
-      <div className="my-[50px] h-[184px] max-w-maxContentTab lg:max-w-maxContent">
+      <div className="my-[50px] h-[184px] max-w-maxContent">
         <Swiper
-          slidesPerView={4}
+          slidesPerView={count}
           spaceBetween={25}
           loop={true}
           freeMode={true}
