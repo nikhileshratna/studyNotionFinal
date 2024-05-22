@@ -21,12 +21,14 @@ database.connect();
 //middlewares
 app.use(express.json());
 app.use(cookieParser());
+// Example in an Express.js server
 app.use(
 	cors({
 		origin:"*",
 		credentials:true,
 	})
 )
+
 
 app.use(
 	fileUpload({
