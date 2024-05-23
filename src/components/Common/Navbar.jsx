@@ -115,7 +115,7 @@ function Navbar() {
                         <div className="absolute left-[50%] top-0 -z-10 h-6 w-6 translate-x-[80%] translate-y-[-40%] rotate-45 select-none rounded bg-richblack-5"></div>
                         {loading ? (
                           <p className="text-center">Loading...</p>
-                        ) : subLinks.length ? (
+                        ) : subLinks?.length ? (
                           <>
                             {subLinks
                               ?.filter(
@@ -190,7 +190,7 @@ function Navbar() {
           <AiOutlineMenuFold fontSize={24} fill="#AFB2BF" onClick={handleMenuClick}/>
         </button>
           
-        <div className={`py-4 px-4 md:hidden w-4/12 z-20 items-center gap-x-4 absolute top-0 right-0 bg-richblack-900 w-30 ${open ? "block" : "hidden"}`} 
+        <div className={`py-4 px-4 h-full md:hidden w-6/12 z-20 items-center gap-x-4 absolute top-0 right-0 bg-richblack-900 w-30 ${open ? "block" : "hidden"}`} 
         ref={ref}>
 
           <div className="flex items-center justify-between">
@@ -254,7 +254,6 @@ function Navbar() {
               <div
                 onClick={(e) => e.stopPropagation()}
                 className="overflow-hidden mr-4 rounded-md border-[1px] border-richblack-700 bg-richblack-800"
-                ref={ref}
               >
                 <Link to="/dashboard/my-profile" onClick={() => setOpen(false)}>
                   <div className="flex w-full items-center gap-x-1 py-[10px] px-[12px] text-sm text-richblack-100 hover:bg-richblack-700 hover:text-richblack-25">
