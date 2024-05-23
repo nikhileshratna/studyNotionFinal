@@ -190,7 +190,7 @@ function Navbar() {
           <AiOutlineMenuFold fontSize={24} fill="#AFB2BF" onClick={handleMenuClick}/>
         </button>
           
-        <div className={`fixed py-4 px-4 h-full md:hidden w-6/12 z-20 items-center gap-x-4 top-0 right-0 bg-richblack-900 w-30 ${open ? "block" : "hidden"}`} 
+        <div className={`fixed py-4 px-4 h-full md:hidden w-6/12 z-[1000] items-center gap-x-4 top-0 right-0 bg-richblack-900 w-30 ${open ? "block" : "hidden"}`} 
         ref={ref}>
 
           <div className="flex items-center justify-between">
@@ -221,9 +221,22 @@ function Navbar() {
             <Link to="/contact" onClick={handleMenuClose}>
               <div>ContactUs</div>
             </Link>
+
           </div>
 
           <div className="flex gap-2 flex-col">
+            {
+              user && user?.accountType !== ACCOUNT_TYPE.INSTRUCTOR && (
+                <div className="overflow-hidden mr-4 rounded-md border-[1px] border-richblack-700 bg-richblack-800">
+                  <Link to="/catalog/web-dev" onClick={handleMenuClose}>
+                    <div className="flex w-full items-center gap-x-1 py-[10px] px-[12px] text-sm text-richblack-100 hover:bg-richblack-700 hover:text-richblack-25">
+                    Courses
+                    </div>
+                  </Link>
+                </div>
+              )
+            }
+
             {user && user?.accountType !== ACCOUNT_TYPE.INSTRUCTOR && (
               <div className="overflow-hidden mr-4 rounded-md border-[1px] border-richblack-700 bg-richblack-800">
               <Link to="/dashboard/cart" className="relative" onClick={handleMenuClose}>
