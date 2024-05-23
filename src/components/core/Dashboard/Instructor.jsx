@@ -38,7 +38,7 @@ export default function Instructor() {
   )
 
   return (
-    <div>
+    <div className="ml-12 md:ml-0">
       <div className="space-y-2">
         <h1 className="text-2xl font-bold text-richblack-5">
           Hi {user?.firstName} 👋

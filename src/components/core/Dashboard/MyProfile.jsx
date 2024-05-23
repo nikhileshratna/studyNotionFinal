@@ -10,7 +10,7 @@ export default function MyProfile() {
   const navigate = useNavigate()
 
   return (
-    <>
+    <div className="flex flex-col ml-12 md:ml-0">
       <h1 className="mb-14 text-3xl font-medium text-richblack-5">
         My Profile
       </h1>
@@ -117,6 +117,6 @@ export default function MyProfile() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }

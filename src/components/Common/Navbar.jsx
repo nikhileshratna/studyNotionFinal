@@ -190,7 +190,7 @@ function Navbar() {
           <AiOutlineMenuFold fontSize={24} fill="#AFB2BF" onClick={handleMenuClick}/>
         </button>
           
-        <div className={`py-4 px-4 h-full md:hidden w-6/12 z-20 items-center gap-x-4 absolute top-0 right-0 bg-richblack-900 w-30 ${open ? "block" : "hidden"}`} 
+        <div className={`fixed py-4 px-4 h-full md:hidden w-6/12 z-20 items-center gap-x-4 top-0 right-0 bg-richblack-900 w-30 ${open ? "block" : "hidden"}`} 
         ref={ref}>
 
           <div className="flex items-center justify-between">
@@ -223,34 +223,35 @@ function Navbar() {
             </Link>
           </div>
 
-          <div className="flex gap-2">
+          <div className="flex gap-2 flex-col">
             {user && user?.accountType !== ACCOUNT_TYPE.INSTRUCTOR && (
+              <div className="overflow-hidden mr-4 rounded-md border-[1px] border-richblack-700 bg-richblack-800">
               <Link to="/dashboard/cart" className="relative" onClick={handleMenuClose}>
-                <AiOutlineShoppingCart className="text-xl text-richblack-100" />
-                {totalItems > 0 && (
-                  <span className="absolute -bottom-2 -right-2 grid h-5 w-5 place-items-center overflow-hidden rounded-full bg-richblack-600 text-center text-xs font-bold text-yellow-100">
-                    {totalItems}
-                  </span>
-                )}
+                <div className="flex w-full items-center gap-x-1 py-[10px] px-[12px] text-sm text-richblack-100 hover:bg-richblack-700 hover:text-richblack-25">
+                  <AiOutlineShoppingCart className="text-xl text-richblack-100" />
+                  cart
+                </div>
               </Link>
+              </div>
             )}
-            {token === null && (
-              <Link to="/login" onClick={handleMenuClose} className="text-xs">
-                <button className="rounded-[8px] border border-richblack-700 bg-richblack-800 px-[6px] py-[3px] text-richblack-100">
-                  Log in
-                </button>
-              </Link>
-            )}
-            {token === null && (
-              <Link to="/signup" onClick={handleMenuClose} className="text-xs">
-                <button className="rounded-[8px] border border-richblack-700 bg-richblack-800 px-[6px] py-[3px] text-richblack-100">
-                  Sign up
-                </button>
-              </Link>
-            )}
+            <div className="flex gap-4">
+              {token === null && (
+                <Link to="/login" onClick={handleMenuClose} className="text-lg">
+                  <button className="rounded-[8px] border border-richblack-700 bg-richblack-800 px-[6px] py-[3px] text-richblack-100">
+                    Log in
+                  </button>
+                </Link>
+              )}
+              {token === null && (
+                <Link to="/signup" onClick={handleMenuClose} className="text-lg">
+                  <button className="rounded-[8px] border border-richblack-700 bg-richblack-800 px-[6px] py-[3px] text-richblack-100">
+                    Sign up
+                  </button>
+                </Link>
+              )}
+            </div>
+            
             {token !== null && <div>
-              <div className="min-w-40  min:h-[10px] bg-white rounded-full"></div>
-
               <div
                 onClick={(e) => e.stopPropagation()}
                 className="overflow-hidden mr-4 rounded-md border-[1px] border-richblack-700 bg-richblack-800"
