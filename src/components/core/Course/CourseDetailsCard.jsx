@@ -57,13 +57,13 @@ function CourseDetailsCard({ course, setConfirmationModal, handleBuyCourse }) {
   return (
     <>
       <div
-        className={`flex flex-col gap-4 rounded-md bg-richblack-700 p-4 text-richblack-5`}
+        className={`flex flex-col gap-4 rounded-md lg:bg-richblack-700 p-4 text-richblack-5`}
       >
         {/* Course Image */}
         <img
           src={ThumbnailImage}
           alt={course?.courseName}
-          className="max-h-[300px] min-h-[180px] w-[400px] overflow-hidden rounded-2xl object-cover md:max-w-full"
+          className="hidden lg:block max-h-[300px] min-h-[180px] w-[400px] overflow-hidden rounded-2xl object-cover md:max-w-full"
         />
 
         <div className="px-4">
@@ -89,13 +89,13 @@ function CourseDetailsCard({ course, setConfirmationModal, handleBuyCourse }) {
               </button>
             )}
           </div>
-          <div>
+          <div className="hidden lg:block">
             <p className="pb-3 pt-6 text-center text-sm text-richblack-25">
               30-Day Money-Back Guarantee
             </p>
           </div>
 
-          <div className={``}>
+          <div className={`hidden lg:block`}>
             <p className={`my-2 text-xl font-semibold `}>
               This Course Includes :
             </p>
@@ -110,7 +110,7 @@ function CourseDetailsCard({ course, setConfirmationModal, handleBuyCourse }) {
               })}
             </div>
           </div>
-          <div className="text-center">
+          <div className="text-center hidden lg:block">
             <button
               className="mx-auto flex items-center gap-2 py-6 text-yellow-100 "
               onClick={handleShare}

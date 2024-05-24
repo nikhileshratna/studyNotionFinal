@@ -14,15 +14,15 @@ export default function MyProfile() {
       <h1 className="mb-14 text-3xl font-medium text-richblack-5">
         My Profile
       </h1>
-      <div className="flex items-center justify-between rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-12">
-        <div className="flex items-center gap-x-4">
+      <div className="md:flex-row gap-y-4 md:gap-y-0 flex-col flex items-center justify-between rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-12">
+        <div className="flex md:flex-row flex-col items-center gap-x-4 gap-y-4 md:gap-y-0">
           <img
             src={user?.image}
             alt={`profile-${user?.firstName}`}
             className="aspect-square w-[78px] rounded-full object-cover"
           />
           <div className="space-y-1">
-            <p className="text-lg font-semibold text-richblack-5">
+            <p className="text-lg font-semibold text-richblack-5 flex justify-center md:justify-start">
               {user?.firstName + " " + user?.lastName}
             </p>
             <p className="text-sm text-richblack-300">{user?.email}</p>
@@ -54,7 +54,7 @@ export default function MyProfile() {
             user?.additionalDetails?.about
               ? "text-richblack-5"
               : "text-richblack-400"
-          } text-sm font-medium`}
+          } text-sm font-medium overflow-clip`}
         >
           {user?.additionalDetails?.about ?? "Write Something About Yourself"}
         </p>
@@ -73,12 +73,18 @@ export default function MyProfile() {
             <RiEditBoxLine />
           </IconBtn>
         </div>
-        <div className="flex max-w-[500px] justify-between">
-          <div className="flex flex-col gap-y-5">
+        <div className="flex max-w-[500px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 grid-flow-row gap-y-5 gap-x-10">
             <div>
               <p className="mb-2 text-sm text-richblack-600">First Name</p>
               <p className="text-sm font-medium text-richblack-5">
                 {user?.firstName}
+              </p>
+            </div>
+            <div>
+              <p className="mb-2 text-sm text-richblack-600">Last Name</p>
+              <p className="text-sm font-medium text-richblack-5">
+                {user?.lastName}
               </p>
             </div>
             <div>
@@ -88,23 +94,15 @@ export default function MyProfile() {
               </p>
             </div>
             <div>
-              <p className="mb-2 text-sm text-richblack-600">Gender</p>
-              <p className="text-sm font-medium text-richblack-5">
-                {user?.additionalDetails?.gender ?? "Add Gender"}
-              </p>
-            </div>
-          </div>
-          <div className="flex flex-col gap-y-5">
-            <div>
-              <p className="mb-2 text-sm text-richblack-600">Last Name</p>
-              <p className="text-sm font-medium text-richblack-5">
-                {user?.lastName}
-              </p>
-            </div>
-            <div>
               <p className="mb-2 text-sm text-richblack-600">Phone Number</p>
               <p className="text-sm font-medium text-richblack-5">
                 {user?.additionalDetails?.contactNumber ?? "Add Contact Number"}
+              </p>
+            </div>
+            <div>
+              <p className="mb-2 text-sm text-richblack-600">Gender</p>
+              <p className="text-sm font-medium text-richblack-5">
+                {user?.additionalDetails?.gender ?? "Add Gender"}
               </p>
             </div>
             <div>
