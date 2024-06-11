@@ -10,7 +10,7 @@
 	"keywords": [
 		"studynotion-backend"
 	],
-	"author": "Abhishek Jaiswal",
+	"author": "Nikhilesh Ratna",
 	"license": "ISC",
 	"dependencies": {
 		"bcrypt": "^5.1.1",
